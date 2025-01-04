@@ -1,20 +1,3 @@
-"""
-This script is a manual implementation of beam search for text generation.
-
-vLLM does not support step by step decoding for beam search. Hence, it does not provide
-logprobs for each step separately.
-
-Internally, however, vLLM does step by step decoding but does not expose the logprobs
-for each step. (https://github.com/vllm-project/vllm/blob/4fb8e329fd6f51d576bcf4b7e8907e0d83c4b5cf/vllm/engine/protocol.py#L99)
-
-This script uses vLLM's LLMEngine to perform step by step decoding and store the logprobs
-for each step.
-
-Relevant docs:
-https://github.com/vllm-project/vllm/issues/6226
-https://github.com/vllm-project/vllm/issues/8306
-"""
-
 import pdb
 from collections import namedtuple
 from vllm import LLMEngine, EngineArgs, SamplingParams
